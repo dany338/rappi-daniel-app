@@ -1,3 +1,71 @@
-<h1>
-  {{title}}
-</h1>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>{{title}}</a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <form class="">
+      <div class="input-field">
+        <input id="search" type="search" required #taskname>
+        <label for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+      </li>
+    </ul>
+    <ul class="right tabs tabs-transparent" style="width: 200px !important;">
+      <li class="tab"><a class="active" href="#test1" title="Ver Productos" (click)="listProducts()"><i class="material-icons">shopping_cart</i></a></li>
+      <li class="tab"><a href="#test2" title="Ver Categorias" (click)="listCategories()"><i class="material-icons">store</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="test1" class="col s12">
+  <app-product></app-product> 
+<table id="list-products-table" class="responsive-table highlight bordered" style="visibility: hidden;">
+  <thead>
+    <tr>
+        <th data-field="id">id</th>
+        <th data-field="name">Name</th>
+        <th data-field="price">Price</th>
+        <th data-field="action">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td><span class="badge blue">{{product.id}}</span></td>
+      <td><span class="badge blue">{{product.name}}</span></td>
+      <td><span class="badge blue">{{product.price}}</span></td>
+      <td>
+        <div class="horizontal">
+          <a class="btn blue">{{product.id}} <i class="material-icons">mode_edit</i></a>
+          <a class="btn red">{{product.id}} <i class="material-icons">delete</i></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div id="test2" class="col s12">
+<table id="list-categories-table" class="responsive-table highlight bordered" style="visibility: hidden;">
+  <thead>
+    <tr>
+        <th data-field="id">id</th>
+        <th data-field="name">Name</th>
+        <th data-field="action">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td><span class="badge blue">{{category.categori_id}}</span></td>
+      <td><span class="badge blue">{{category.name}}</span></td>
+      <td>
+        <div class="horizontal">
+          <a class="btn blue">{{category.categori_id}} <i class="material-icons">mode_edit</i></a>
+          <a class="btn red">{{category.categori_id}} <i class="material-icons">delete</i></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

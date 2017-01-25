@@ -1,0 +1,68 @@
+<h2>EDIT PRODUCTS</h2>
+<div class="row">
+    <form class="col s12" #formProduct="ngForm" novalidate>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="ID" id="id" type="text" class="validate" [class.invalid]="!idTxt.valid" name="id" #idTxt="ngModel" [(ngModel)]="productToCreate.id" required>
+                <label for="id" data-error="EL ID DEL PRODUCTO ES REQUERIDO">ID</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="name" id="name" type="text" class="validate" [class.invalid]="!nameTxt.valid" name="name" #nameTxt="ngModel" [(ngModel)]="productToCreate.name" required>
+                <label for="name" data-error="EL NOMBRE DEL PRODUCTO ES REQUERIDO" >NAME</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="price" id="price" type="text" class="validate" [class.invalid]="!priceTxt.valid" name="price" #priceTxt="ngModel" [(ngModel)]="productToCreate.price" required>
+                <label for="price" data-error="EL PRECIO DEL PRODUCTO ES REQUERIDO">PRICE</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="available" id="available" type="text" class="validate" [class.invalid]="!availableTxt.valid" name="available" #availableTxt="ngModel" [(ngModel)]="productToCreate.available" required>
+                <label for="available" data-error="LA DISPONIBILIDAD DEL PRODUCTO ES REQUERIDO">available</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="best_seller" id="best_seller" type="text" class="validate" [class.invalid]="!bestsellerTxt.valid" name="available" #bestsellerTxt="ngModel" [(ngModel)]="productToCreate.best_seller" required>
+                <label for="best_seller" data-error="MAS VENDIDOS DEL PRODUCTO ES REQUERIDO">best_seller</label>
+            </div>
+            <div class="input-field col s6">
+                <select id="categories" multiple>
+                    <option value="" disabled selected>Seleccionar Categoria</option>
+                    <option value="1">drinks</option>
+                    <option value="2">lunch</option>
+                    <option value="3">food</option>
+                    <option value="4">sea</option>
+                </select>
+                <label for="categories">categories</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="img" id="img" type="text" class="validate" [class.invalid]="!imgTxt.valid" name="available" #imgTxt="ngModel" [(ngModel)]="productToCreate.img" required>
+                <label for="img" data-error="LA IMAGEN DEL PRODUCTO ES REQUERIDO">IMG</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="description" id="description" type="text" class="validate" [class.invalid]="!descriptionTxt.valid" name="available" #descriptionTxt="ngModel" [(ngModel)]="productToCreate.description" required>
+                <label for="description" data-error="LA DESCRIPCION DEL PRODUCTO ES REQUERIDO">Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light" 
+                  type="submit" 
+                  name="action"
+                  [disabled]="!formProduct.valid"
+                  (click)="saveProduct()">
+                    Guardar
+                    <i class="material-icons right">send</i>            
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
