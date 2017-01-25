@@ -14,8 +14,8 @@ import { ProductComponent } from './product/product.component';
 export class AppComponent {
   title = 'app rappid!';
 
-  categories: Array<Category> = new Array<Category>();
-  products: Array<Product> = new Array<Product>();
+  public categories: Array<Category> = new Array<Category>();
+  public products: Array<Product> = new Array<Product>();
 
   constructor(private http:Http){
     //this.categories = [];
@@ -42,5 +42,10 @@ export class AppComponent {
       let tableCategories = document.getElementById("list-categories-table");
       tableCategories.style.visibility = "visible";
     });
+  }
+
+  addProduct() {
+    let formProduct = document.getElementById("form-product");
+    formProduct.style.display = "block";
   }
 }
